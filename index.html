@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.U.R.O.R.A. Misión 1: Inspección de Protocolos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tutorial Modal -->
+    <div id="tutorial-modal" class="modal">
+        <div class="modal-content">
+            <div class="tutorial-header">
+                <h2>TUTORIAL DE MISIÓN A.U.R.O.R.A.</h2>
+                <div class="tutorial-progress">
+                    <div class="progress-dots">
+                        <span class="dot active" data-step="1"></span>
+                        <span class="dot" data-step="2"></span>
+                        <span class="dot" data-step="3"></span>
+                        <span class="dot" data-step="4"></span>
+                        <span class="dot" data-step="5"></span>
+                        <span class="dot" data-step="6"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tutorial-content">
+                <div class="tutorial-step active" data-step="1">
+                    <div class="step-icon">👩‍💼</div>
+                    <h3>¡Bienvenido/a, Ingeniero/a en Prácticas!</h3>
+                    <p>La nave A.U.R.O.R.A. ha sufrido daños por una tormenta solar. Tu misión: encuentra y corrige los errores en los 4 módulos usando tu Guía de Campo.</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="2">
+                    <div class="step-icon">📋</div>
+                    <h3>Panel de Módulos</h3>
+                    <p>Aquí están los sistemas dañados. Haz clic en uno para empezar. Los módulos cambian de 🔴 (dañado) a 🟢 (reparado).</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="3">
+                    <div class="step-icon">💻</div>
+                    <h3>Editor de Código</h3>
+                    <p>Aquí verás el código corrupto. ¡Edítalo directamente para arreglarlo! Los números de línea te ayudan a localizar errores.</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="4">
+                    <div class="step-icon">📖</div>
+                    <h3>Guía de Campo</h3>
+                    <p>Esta es tu chuleta. ¡Úsala para encontrar los errores! NOTA: En pantallas pequeñas o móviles, tu guía podría aparecer ABAJO en lugar de a la derecha.</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="5">
+                    <div class="step-icon">🔍</div>
+                    <h3>Compilar y Verificar</h3>
+                    <p>Cuando creas que lo tienes, presiona aquí para probar tu corrección. Recibirás feedback inmediato.</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="6">
+                    <div class="step-icon">🚀</div>
+                    <h3>¡Listo para la Misión!</h3>
+                    <p>Ya tienes todo lo necesario. ¡Repara los 4 módulos y restaura A.U.R.O.R.A.! Recuerda: la programación requiere precisión.</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-navigation">
+                <button id="prev-step" class="btn btn--secondary">◀ Anterior</button>
+                <button id="next-step" class="btn btn--primary">Siguiente ▶</button>
+                <button id="start-mission" class="btn btn--primary" style="display: none;">¡ENTENDIDO, A TRABAJAR!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Interface -->
+    <div id="main-interface" style="display: none;">
+        <header class="mission-header">
+            <h1 class="title-glow">A.U.R.O.R.A. MISIÓN 1: INSPECCIÓN DE PROTOCOLOS</h1>
+            <div class="mission-status">
+                <span>Estado: <span id="mission-progress">0/4 Módulos Reparados</span></span>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <!-- Left Column: Module Panel -->
+            <div class="panel modules-panel" id="modules-panel">
+                <h3>MÓDULOS DE SISTEMA</h3>
+                <div class="module-list">
+                    <button class="module-btn" data-module="motores">
+                        <span class="module-icon">⚙️</span>
+                        <span class="module-name">Modulo_Motores.js</span>
+                        <span class="module-status">🔴</span>
+                    </button>
+                    <button class="module-btn" data-module="giroscopio">
+                        <span class="module-icon">⚖️</span>
+                        <span class="module-name">Modulo_Giroscopio.js</span>
+                        <span class="module-status">🔴</span>
+                    </button>
+                    <button class="module-btn" data-module="herramientas">
+                        <span class="module-icon">🛠️</span>
+                        <span class="module-name">Modulo_Herramientas.js</span>
+                        <span class="module-status">🔴</span>
+                    </button>
+                    <button class="module-btn" data-module="comunicaciones">
+                        <span class="module-icon">📡</span>
+                        <span class="module-name">Modulo_Comunicaciones.js</span>
+                        <span class="module-status">🔴</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Center Column: Code Editor -->
+            <div class="panel editor-panel" id="editor-panel">
+                <h3>EDITOR DE CÓDIGO</h3>
+                <div class="editor-container">
+                    <div class="line-numbers" id="line-numbers">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                    </div>
+                    <textarea id="code-editor" placeholder="Selecciona un módulo para comenzar...">// A.U.R.O.R.A. SISTEMA DE CONTROL
+// Selecciona un módulo para reparar...
+
+console.log("Sistema esperando instrucciones...");</textarea>
+                </div>
+                <button id="verify-button" class="verify-btn" disabled>[ COMPILAR Y VERIFICAR ]</button>
+                <div id="feedback" class="feedback"></div>
+            </div>
+
+            <!-- Right Column: Toolkit -->
+            <div class="panel toolkit-panel" id="toolkit-panel">
+                <h3>GUÍA DE CAMPO DEL PROGRAMADOR</h3>
+                <div class="toolkit-content">
+                    <div class="rule-card">
+                        <h4>Punto Final</h4>
+                        <div class="examples">
+                            <div class="bad">❌ activarLuz()</div>
+                            <div class="good">✅ activarLuz();</div>
+                        </div>
+                        <p>Todas las instrucciones terminan en punto y coma</p>
+                    </div>
+                    
+                    <div class="rule-card">
+                        <h4>Burbujas de Texto</h4>
+                        <div class="examples">
+                            <div class="bad">❌ decir(Hola robot)</div>
+                            <div class="good">✅ decir("Hola robot");</div>
+                        </div>
+                        <p>El texto va entre comillas</p>
+                    </div>
+                    
+                    <div class="rule-card">
+                        <h4>Abrazos de Grupo</h4>
+                        <div class="examples">
+                            <div class="bad">❌ si (condicion) { hazAlgo();</div>
+                            <div class="good">✅ si (condicion) { hazAlgo(); }</div>
+                        </div>
+                        <p>Las llaves siempre van en pares</p>
+                    </div>
+                    
+                    <div class="rule-card">
+                        <h4>Contenedores</h4>
+                        <div class="examples">
+                            <div class="bad">❌ mover 5 pasos</div>
+                            <div class="good">✅ mover(5);</div>
+                        </div>
+                        <p>Los parámetros van entre paréntesis</p>
+                    </div>
+                    
+                    <div class="rule-card featured">
+                        <h4>⭐ NOMBRES CLAVE ⭐</h4>
+                        <div class="examples">
+                            <div class="bad">❌ potensia, enviarreportedeestado</div>
+                            <div class="good">✅ potencia, enviarReporteDeEstado</div>
+                        </div>
+                        <p>Los errores de tipeo y las mayúsculas/minúsculas importan mucho</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Screen -->
+    <div id="completion-screen" class="modal" style="display: none;">
+        <div class="completion-content">
+            <div class="aurora-animation">
+                <div class="aurora-text">A.U.R.O.R.A.</div>
+                <div class="status-text">SISTEMA RESTAURADO</div>
+            </div>
+            
+            <h1 class="completion-title">¡PROTOCOLO RESTAURADO!</h1>
+            
+            <div class="password-section">
+                <h3>Contraseña de Acceso al Protocolo 2:</h3>
+                <div id="password-display" class="password-display"></div>
+                <p class="password-note">Guarda tu contraseña en un lugar seguro, esta servirá para acceder al PROTOCOLO 2 de AURORA</p>
+                
+                <div class="completion-actions">
+                    <button id="copy-password" class="btn btn--primary">Copiar Contraseña</button>
+                    <button id="return-button" class="btn btn--secondary">Regresar a la Terminal de Protocolos</button>
+                </div>
+                
+                <div id="copy-feedback" class="copy-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="ui-click" preload="auto">
+        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
+    </audio>
+    <audio id="typing-sound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
+    </audio>
+    <audio id="success-chime" preload="auto">
+        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
+    </audio>
+    <audio id="error-buzz" preload="auto">
+        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
