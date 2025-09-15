@@ -4,78 +4,130 @@
 const modules = {
     motores: {
         id: "motores",
-        name: "Modulo_Motores.js", 
+        name: "Modulo_Motores.js",
         icon: "⚙️",
-        corruptCode: `function ajustarPotencia() {
-  let potencia = 100;
-  if (potensia > 50) {
-    console.log("Potencia suficiente. Motores listos.")
+        corruptCode: `// Protocolo de ignición de motores principales.
+// A.U.R.O.R.A. v2.1
+
+function ajustarPotencia() {
+  const POTENCIA_MAXIMA = 100;
+  let nivelPotencia = POTENCIA_MAXIMA;
+  
+  // Verificar si el nivel es seguro
+  if (nivelPotensia > 50) {
+    console.log("Nivel de potencia seguro para ignición.")
   }
+
+  return "Motores listos para la secuencia de arranque.";
 }`,
-        correctCode: `function ajustarPotencia() {
-  let potencia = 100;
-  if (potencia > 50) {
-    console.log("Potencia suficiente. Motores listos.");
+        correctCode: `// Protocolo de ignición de motores principales.
+// A.U.R.O.R.A. v2.1
+
+function ajustarPotencia() {
+  const POTENCIA_MAXIMA = 100;
+  let nivelPotencia = POTENCIA_MAXIMA;
+  
+  // Verificar si el nivel es seguro
+  if (nivelPotencia > 50) {
+    console.log("Nivel de potencia seguro para ignición.");
   }
+
+  return "Motores listos para la secuencia de arranque.";
 }`,
-        errors: ["Typo en variable 'potensia'", "Falta punto y coma"],
-        hints: "Revisa la variable en el 'if' y el punto y coma al final del console.log",
         completed: false
     },
     giroscopio: {
         id: "giroscopio",
         name: "Modulo_Giroscopio.js",
-        icon: "⚖️", 
-        corruptCode: `function verificarEstabilidad(terrenoSeguro) {
+        icon: "⚖️",
+        corruptCode: `// Sistema de estabilización giroscópica.
+// A.U.R.O.R.A. v2.1
+
+function verificarEstabilidad(terrenoSeguro) {
+  console.log("Iniciando verificación de estabilidad...");
+  
+  // El giroscopio solo se activa en terreno seguro.
   if (terrenoSeguro == true {
     activarEstabilizador();
+    console.log("Estabilizadores activados.");
   
-  console.log("Verificación completada.");
+  console.log("Verificación de estabilidad completada.");
 }`,
-        correctCode: `function verificarEstabilidad(terrenoSeguro) {
+        correctCode: `// Sistema de estabilización giroscópica.
+// A.U.R.O.R.A. v2.1
+
+function verificarEstabilidad(terrenoSeguro) {
+  console.log("Iniciando verificación de estabilidad...");
+  
+  // El giroscopio solo se activa en terreno seguro.
   if (terrenoSeguro == true) {
     activarEstabilizador();
+    console.log("Estabilizadores activados.");
   }
-  console.log("Verificación completada.");
+  console.log("Verificación de estabilidad completada.");
 }`,
-        errors: ["Falta paréntesis de cierre en el 'if'", "Falta llave de cierre en el 'if'"],
-        hints: "Revisa los paréntesis y llaves del bloque 'if'",
         completed: false
     },
     herramientas: {
         id: "herramientas",
         name: "Modulo_Herramientas.js",
         icon: "🛠️",
-        corruptCode: `function operarTaladro() {
-  let velocidad = "media";
-  console.log("Activando taladro a velocidad " + velocidad)
-  enviarMensaje("Iniciando perforación...";
+        corruptCode: `// Control del brazo robótico y herramientas.
+// A.U.R.O.R.A. v2.1
+
+function operarTaladro() {
+  const VELOCIDAD_MAX = 3000; // RPM
+  let velocidadActual = "media";
+  
+  console.log("Activando taladro a velocidad " + velocidadActual)
+  
+  // Enviar mensaje de estado a la consola principal.
+  enviarMensaje("Iniciando perforación de muestra...";
 }`,
-        correctCode: `function operarTaladro() {
-  let velocidad = "media";
-  console.log("Activando taladro a velocidad " + velocidad);
-  enviarMensaje("Iniciando perforación...");
+        correctCode: `// Control del brazo robótico y herramientas.
+// A.U.R.O.R.A. v2.1
+
+function operarTaladro() {
+  const VELOCIDAD_MAX = 3000; // RPM
+  let velocidadActual = "media";
+  
+  console.log("Activando taladro a velocidad " + velocidadActual);
+  
+  // Enviar mensaje de estado a la consola principal.
+  enviarMensaje("Iniciando perforación de muestra...");
 }`,
-        errors: ["Falta punto y coma", "Paréntesis mal colocado"],
-        hints: "Revisa los puntos y coma, y los paréntesis de la función enviarMensaje",
         completed: false
     },
     comunicaciones: {
-        id: "comunicaciones", 
+        id: "comunicaciones",
         name: "Modulo_Comunicaciones.js",
         icon: "📡",
-        corruptCode: `function enviarReporteDeEstado() {
-  let mensaje = A.U.R.O.R.A. reportando: todo en orden.;
+        corruptCode: `// Antena de comunicaciones de largo alcance.
+// A.U.R.O.R.A. v2.1
+
+function enviarReporteDeEstado() {
+  let status = "Operacional";
+  let mensaje = A.U.R.O.R.A. reportando: todo en orden. Estado: + status;
+  
+  console.log("Transmitiendo mensaje a la base...");
   transmitir(mensaje);
 }
+
+// Ejecutar la función de reporte.
 enviarreportedeestado();`,
-        correctCode: `function enviarReporteDeEstado() {
-  let mensaje = "A.U.R.O.R.A. reportando: todo en orden.";
+        correctCode: `// Antena de comunicaciones de largo alcance.
+// A.U.R.O.R.A. v2.1
+
+function enviarReporteDeEstado() {
+  let status = "Operacional";
+  let mensaje = "A.U.R.O.R.A. reportando: todo en orden. Estado: " + status;
+  
+  console.log("Transmitiendo mensaje a la base...");
   transmitir(mensaje);
 }
+
+// Ejecutar la función de reporte.
 enviarReporteDeEstado();`,
-        errors: ["Faltan comillas en el string", "Nombre de función mal escrito (mayúsculas)"],
-        hints: "Revisa las comillas en el mensaje y el nombre de la función al final (mayúsculas/minúsculas)",
         completed: false
     }
 };
@@ -85,7 +137,9 @@ let gameState = {
     currentModule: null,
     completedModules: 0,
     tutorialActive: true,
-    currentTutorialStep: 1
+    currentTutorialStep: 1,
+    timerInterval: null,
+    timeElapsed: 0 // Inicia en 0 y cuenta hacia arriba
 };
 
 // DOM elements
@@ -98,7 +152,8 @@ const elements = {
     verifyButton: null,
     feedback: null,
     moduleButtons: null,
-    progressText: null
+    progressText: null,
+    timerDisplay: null
 };
 
 // Sound effects using Web Audio API
@@ -173,6 +228,7 @@ function initGame() {
     elements.feedback = document.getElementById('feedback');
     elements.moduleButtons = document.querySelectorAll('.module-btn');
     elements.progressText = document.getElementById('mission-progress');
+    elements.timerDisplay = document.getElementById('mission-timer');
 
     // Setup tutorial
     setupTutorial();
@@ -189,9 +245,37 @@ function initGame() {
     // Setup completion screen
     setupCompletionScreen();
 
+    // Set initial timer display
+    updateTimerDisplay();
+
     // Start tutorial
     showTutorial();
 }
+
+// Timer functionality
+function startTimer() {
+    if (gameState.timerInterval) clearInterval(gameState.timerInterval);
+    
+    // El cronómetro cuenta hacia arriba cada segundo
+    gameState.timerInterval = setInterval(() => {
+        gameState.timeElapsed++;
+        updateTimerDisplay();
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(gameState.timerInterval);
+}
+
+function updateTimerDisplay() {
+    if (!elements.timerDisplay) return;
+    const minutes = Math.floor(gameState.timeElapsed / 60);
+    const seconds = gameState.timeElapsed % 60;
+    
+    const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    elements.timerDisplay.textContent = formattedTime;
+}
+
 
 // Tutorial functionality
 function setupTutorial() {
@@ -291,6 +375,7 @@ function closeTutorial() {
         elements.tutorialModal.style.display = 'none';
         elements.mainInterface.style.display = 'block';
         gameState.tutorialActive = false;
+        startTimer();
     }
 }
 
@@ -402,15 +487,7 @@ function verifyCode() {
 
     // Normalize whitespace for comparison
     const normalizeCode = (code) => {
-        return code
-            .replace(/\s+/g, ' ')
-            .replace(/\s*([{}();,])\s*/g, '$1')
-            .replace(/\s*=\s*/g, '=')
-            .replace(/\s*==\s*/g, '==')
-            .replace(/\s*>\s*/g, '>')
-            .replace(/\s*<\s*/g, '<')
-            .replace(/\s*\+\s*/g, '+')
-            .trim();
+        return code.replace(/\s+/g, ' ').trim();
     };
 
     const normalizedUser = normalizeCode(userCode);
@@ -432,13 +509,14 @@ function verifyCode() {
             
             // Check if all modules completed
             if (gameState.completedModules === Object.keys(modules).length) {
+                stopTimer();
                 setTimeout(showCompletionScreen, 1500);
             }
         }
     } else {
         // Incorrect code
         soundManager.playSound('error');
-        showFeedback(`Error en el código. ${module.hints} ❌`, 'error');
+        showFeedback(`ERROR DE COMPILACIÓN. Protocolo rechazado. Revisa la sintaxis. ❌`, 'error');
     }
 }
 
@@ -616,38 +694,3 @@ window.addEventListener('orientationchange', () => {
         updateLineNumbers();
     }, 100);
 });
-
-// Debug functions (can be removed in production)
-window.auroraDebug = {
-    skipTutorial: () => closeTutorial(),
-    completeModule: (moduleId) => {
-        if (modules[moduleId] && !modules[moduleId].completed) {
-            modules[moduleId].completed = true;
-            gameState.completedModules++;
-            updateModuleStatus(moduleId);
-            updateProgress();
-        }
-    },
-    completeAllModules: () => {
-        Object.keys(modules).forEach(moduleId => {
-            if (!modules[moduleId].completed) {
-                modules[moduleId].completed = true;
-                gameState.completedModules++;
-                updateModuleStatus(moduleId);
-            }
-        });
-        updateProgress();
-        setTimeout(showCompletionScreen, 500);
-    },
-    resetGame: () => {
-        location.reload();
-    },
-    getCurrentStep: () => gameState.currentTutorialStep,
-    goToStep: (step) => {
-        gameState.currentTutorialStep = step;
-        updateTutorialStep();
-    }
-};
-
-console.log('🚀 A.U.R.O.R.A. Mission Control initialized');
-console.log('📡 Use auroraDebug object for testing (check auroraDebug.skipTutorial(), etc.)');
