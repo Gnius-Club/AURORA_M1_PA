@@ -1,3 +1,5 @@
+/* START OF FILE style.css */
+
 :root {
   /* Primitive Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
@@ -80,19 +82,19 @@
   --color-info-rgb: 98, 108, 113;
 
   /* Typography */
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+  --font-family-base: "Roboto", "FKGroteskNeue", "Geist", "Inter", -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
     Monaco, Consolas, monospace;
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
+  --font-size-xs: 14px;
+  --font-size-sm: 15px;
+  --font-size-base: 18px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 23px;
+  --font-size-2xl: 25px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 38px;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 550;
@@ -739,7 +741,7 @@ select.form-control {
 
 /* END PERPLEXITY DESIGN SYSTEM */
 /* Import design system first */
-@import url('https://fonts.googleapis.com/css2?family=VT323:wght@400&display=swap');
+/* Fonts are pre-imported in HTML head */
 
 /* Override design system with retro sci-fi theme */
 :root {
@@ -772,11 +774,11 @@ select.form-control {
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-retro);
+  font-family: 'Roboto', sans-serif;
   background: var(--color-retro-bg);
   color: var(--color-retro-text);
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 20px;
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
@@ -801,6 +803,7 @@ body::before {
 
 /* Title glow effect */
 .title-glow {
+  font-family: var(--font-retro);
   color: var(--color-retro-cyan);
   text-shadow: var(--glow-cyan);
   animation: pulse-glow 2s ease-in-out infinite alternate;
@@ -852,10 +855,11 @@ body::before {
 
 /* Tutorial styles */
 .tutorial-header h2 {
+  font-family: var(--font-retro);
   color: var(--color-retro-cyan);
   text-align: center;
   margin: 0 0 20px 0;
-  font-size: 24px;
+  font-size: 30px;
   text-shadow: var(--glow-cyan);
 }
 
@@ -867,8 +871,8 @@ body::before {
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: var(--color-retro-text-dim);
   cursor: pointer;
@@ -897,14 +901,14 @@ body::before {
 }
 
 .step-icon {
-  font-size: 48px;
+  font-size: 60px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 10px var(--color-retro-cyan));
 }
 
 .tutorial-step h3 {
   color: var(--color-retro-green);
-  font-size: 22px;
+  font-size: 28px;
   margin-bottom: 15px;
   text-shadow: var(--glow-green);
 }
@@ -922,9 +926,9 @@ body::before {
   background: transparent;
   border: 2px solid var(--color-retro-cyan);
   color: var(--color-retro-cyan);
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-family: var(--font-retro);
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -967,14 +971,54 @@ body::before {
 }
 
 .mission-header h1 {
-  font-size: 28px;
-  margin: 0 0 10px 0;
+  font-family: var(--font-retro);
+  font-size: 35px;
+  margin: 0 0 15px 0;
+}
+
+.mission-status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  margin-top: 15px;
+}
+
+.mission-timer {
+  font-family: var(--font-retro);
+  color: var(--color-retro-red);
+  font-size: 80px; /* Increased font size */
+  text-shadow: 0 0 15px var(--color-retro-red), 0 0 30px var(--color-retro-red); /* More intense glow */
+  animation: pulse-danger 1.5s ease-in-out infinite alternate; /* New dangerous animation */
+  order: -1;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .mission-timer {
+    order: 0;
+    width: auto;
+  }
+}
+
+@keyframes pulse-danger {
+  from {
+    text-shadow: 0 0 10px var(--color-retro-red), 0 0 20px var(--color-retro-red);
+    transform: scale(1);
+  }
+  to {
+    text-shadow: 0 0 20px var(--color-retro-red), 0 0 40px var(--color-retro-red), 0 0 60px rgba(255, 0, 64, 0.5);
+    transform: scale(1.05);
+  }
 }
 
 .mission-status {
   color: var(--color-retro-yellow);
-  font-size: 16px;
+  font-size: 20px;
+  font-family: var(--font-retro);
 }
+
 
 /* Game container - responsive layout */
 .game-container {
@@ -996,10 +1040,11 @@ body::before {
 }
 
 .panel h3 {
+  font-family: var(--font-retro);
   color: var(--color-retro-cyan);
   text-align: center;
   margin: 0 0 20px 0;
-  font-size: 18px;
+  font-size: 23px;
   text-shadow: var(--glow-cyan);
   border-bottom: 1px solid var(--color-retro-cyan);
   padding-bottom: 10px;
@@ -1016,9 +1061,9 @@ body::before {
   background: var(--color-retro-bg);
   border: 2px solid var(--color-retro-text-dim);
   color: var(--color-retro-text);
-  padding: 15px;
+  padding: 18px;
   font-family: var(--font-retro);
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -1043,7 +1088,7 @@ body::before {
 }
 
 .module-icon {
-  font-size: 20px;
+  font-size: 25px;
   min-width: 25px;
 }
 
@@ -1053,7 +1098,7 @@ body::before {
 }
 
 .module-status {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /* Editor panel */
@@ -1075,12 +1120,12 @@ body::before {
   min-width: 40px;
   border-right: 2px solid var(--color-retro-text-dim);
   font-family: var(--font-retro);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
 .line-numbers div {
-  height: 21px;
+  height: 27px;
 }
 
 #code-editor {
@@ -1089,7 +1134,7 @@ body::before {
   border: none;
   color: var(--color-retro-green);
   font-family: var(--font-retro);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
   padding: 10px;
   resize: none;
@@ -1106,9 +1151,9 @@ body::before {
   background: var(--color-retro-bg);
   border: 3px solid var(--color-retro-yellow);
   color: var(--color-retro-yellow);
-  padding: 15px;
+  padding: 18px;
   font-family: var(--font-retro);
-  font-size: 18px;
+  font-size: 23px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -1128,10 +1173,11 @@ body::before {
 
 .feedback {
   margin-top: 15px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
-  font-size: 14px;
-  min-height: 20px;
+  font-size: 18px;
+  min-height: 25px;
+  font-family: var(--font-retro);
 }
 
 .feedback.success {
@@ -1172,9 +1218,10 @@ body::before {
 }
 
 .rule-card h4 {
+  font-family: var(--font-retro);
   color: var(--color-retro-cyan);
   margin: 0 0 10px 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .rule-card.featured h4 {
@@ -1185,7 +1232,7 @@ body::before {
 .examples {
   margin: 10px 0;
   font-family: var(--font-retro);
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .examples .bad {
@@ -1199,7 +1246,7 @@ body::before {
 
 .rule-card p {
   margin: 10px 0 0 0;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--color-retro-text-dim);
 }
 
@@ -1235,7 +1282,8 @@ body::before {
 }
 
 .aurora-text {
-  font-size: 48px;
+  font-family: var(--font-retro);
+  font-size: 60px;
   color: var(--color-retro-cyan);
   text-shadow: var(--glow-cyan);
   animation: aurora-pulse 2s ease-in-out infinite;
@@ -1254,14 +1302,15 @@ body::before {
 }
 
 .status-text {
+  font-family: var(--font-retro);
   color: var(--color-retro-green);
-  font-size: 20px;
+  font-size: 25px;
   text-shadow: var(--glow-green);
 }
 
 .completion-title {
   color: var(--color-retro-yellow);
-  font-size: 36px;
+  font-size: 45px;
   margin: 20px 0;
   text-shadow: var(--glow-yellow);
 }
@@ -1276,7 +1325,7 @@ body::before {
   border: 3px solid var(--color-retro-green);
   border-radius: 8px;
   padding: 20px;
-  font-size: 24px;
+  font-size: 30px;
   color: var(--color-retro-green);
   text-shadow: var(--glow-green);
   margin: 20px 0;
@@ -1286,7 +1335,7 @@ body::before {
 
 .password-note {
   color: var(--color-retro-text-dim);
-  font-size: 14px;
+  font-size: 18px;
   margin: 15px 0;
 }
 
@@ -1300,7 +1349,7 @@ body::before {
 
 .copy-feedback {
   color: var(--color-retro-green);
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 15px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1338,11 +1387,11 @@ body::before {
 
 @media (max-width: 768px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
   
   .mission-header h1 {
-    font-size: 22px;
+    font-size: 28px;
   }
   
   .modal-content {
@@ -1351,15 +1400,15 @@ body::before {
   }
   
   .tutorial-header h2 {
-    font-size: 20px;
+    font-size: 25px;
   }
   
   .step-icon {
-    font-size: 36px;
+    font-size: 45px;
   }
   
   .tutorial-step h3 {
-    font-size: 18px;
+    font-size: 23px;
   }
   
   .completion-actions {
@@ -1368,15 +1417,15 @@ body::before {
   }
   
   .aurora-text {
-    font-size: 36px;
+    font-size: 45px;
   }
   
   .completion-title {
-    font-size: 28px;
+    font-size: 35px;
   }
   
   .password-display {
-    font-size: 18px;
+    font-size: 23px;
     padding: 15px;
   }
 }
@@ -1391,17 +1440,21 @@ body::before {
   }
   
   .module-btn {
-    padding: 12px;
-    font-size: 13px;
+    padding: 15px;
+    font-size: 16px;
   }
   
   .verify-btn {
-    font-size: 16px;
-    padding: 12px;
+    font-size: 20px;
+    padding: 15px;
   }
   
   #code-editor {
-    font-size: 13px;
+    font-size: 16px;
+  }
+
+  .line-numbers div {
+    height: 24px;
   }
   
   .rule-card {
