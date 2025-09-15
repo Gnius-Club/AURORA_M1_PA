@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.U.R.O.R.A. Misión 1: Inspección de Protocolos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Tutorial Modal -->
@@ -75,8 +77,11 @@
     <div id="main-interface" style="display: none;">
         <header class="mission-header">
             <h1 class="title-glow">A.U.R.O.R.A. MISIÓN 1: INSPECCIÓN DE PROTOCOLOS</h1>
-            <div class="mission-status">
-                <span>Estado: <span id="mission-progress">0/4 Módulos Reparados</span></span>
+            <div class="mission-status-container">
+                <div id="mission-timer" class="mission-timer">10:00</div>
+                <div class="mission-status">
+                    <span>Estado: <span id="mission-progress">0/4 Módulos Reparados</span></span>
+                </div>
             </div>
         </header>
 
@@ -205,20 +210,6 @@ console.log("Sistema esperando instrucciones...");</textarea>
             </div>
         </div>
     </div>
-
-    <!-- Audio Elements -->
-    <audio id="ui-click" preload="auto">
-        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
-    </audio>
-    <audio id="typing-sound" preload="auto">
-        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
-    </audio>
-    <audio id="success-chime" preload="auto">
-        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
-    </audio>
-    <audio id="error-buzz" preload="auto">
-        <source src="data:audio/wav;base64,UklGRuICAABXQVZFZm10IBAAAAABAAEIAP//AAD//wCAAAAgBFhUUkEKAQAABAAA" type="audio/wav">
-    </audio>
 
     <script src="app.js"></script>
 </body>
